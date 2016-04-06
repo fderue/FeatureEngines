@@ -3,7 +3,6 @@
 using namespace std;
 using namespace cv;
 
-
 void KpEngine::extractKp(Mat& im)
 {
 #if KP_GPU
@@ -93,6 +92,7 @@ void KpEngine::getKpFromGpu()
 void KpEngine::getDescFromGpu()
 {
 #if KP_GPU
-	d_kp_gpu.download(d_kp);
+	//d_kp_gpu.download(d_kp);
+	d_kp = Mat(d_kp_gpu);
 #endif
 }

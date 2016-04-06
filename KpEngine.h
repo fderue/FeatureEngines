@@ -1,7 +1,8 @@
 /*
-Derue François-Xavier
+@author Derue François-Xavier
+francois.xavier.derue<at>gmail.com
 */
-
+#pragma once
 #include <opencv2/opencv.hpp>
 #include <opencv2/xfeatures2d.hpp>
 #include <opencv2/xfeatures2d/cuda.hpp>
@@ -39,16 +40,16 @@ ORB : D+E
 KAZE : D+E
 AKAZE : D+E
 ------ GPU Implementation -------
-cuda::SURF_CUDA : D+E
+cuda::SURF_CUDA : D+E // does not work with small image
 cuda::ORB : D+E but D alone is not working !
 cuda::FastFeatureDetector : E
 */
 
-#define KP_EXTRACTOR xfeatures2d::SIFT
-#define KP_DESCRIPTOR xfeatures2d::SIFT
+#define KP_EXTRACTOR xfeatures2d::SIFT//xfeatures2d::SURF//xfeatures2d::SIFT//cuda::SURF_CUDA//cuda::SURF_CUDA//xfeatures2d::SIFT
+#define KP_DESCRIPTOR xfeatures2d::SIFT//xfeatures2d::SURF//xfeatures2d::SIFT//cuda::SURF_CUDA//cuda::SURF_CUDA//xfeatures2d::SURF//xfeatures2d::SIFT
 #define KP_GPU 0 // to activate if use Gpu Feature
-#define SURF_GPU_EXTRACTOR 0 // flag needed for SURF_GPU 
-#define SURF_GPU_DESCRIPTOR 0 // flag needed for SURF_GPU 
+#define SURF_GPU_EXTRACTOR 0 // flag needed only for SURF_GPU 
+#define SURF_GPU_DESCRIPTOR 0 // flag needed only for SURF_GPU 
 
 using namespace std;
 using namespace cv;
